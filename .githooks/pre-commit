@@ -1,0 +1,14 @@
+#!/bin/sh
+# Pre-commit hook: Chặn tuyệt đối việc commit bất kỳ file/thư mục nào thuộc .codegraph
+
+if git diff --cached --name-only | grep -E "(^|/)\.codegraph(/|$)"; then
+    echo "=================================================================="
+    echo "❌ LỖI BẢO VỆ: Phát hiện file thuộc .codegraph đang được staged!"
+    echo "   Commit đã bị hủy tự động để tránh vô tình push .codegraph lên GitHub."
+    echo "   Để loại bỏ file khỏi staging, hãy chạy lệnh:"
+    echo "       git reset HEAD .codegraph"
+    echo "=================================================================="
+    exit 1
+fi
+
+exit 0

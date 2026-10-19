@@ -1,0 +1,61 @@
+# Đặt file này ở .github/CODEOWNERS khi tạo repo.
+# Thay @username bằng tên GitHub thật của từng người.
+# An = @an-github, Hưng = @hung-github, Hạo = @hao-github, Lam = @lam-github,
+# Đạt = @dat-github, Danh = @danh-github, Đăng = @dang-github
+
+# Mặc định: Leader duyệt những gì không có chủ rõ ràng
+*                                   @danh-github
+
+# Frontend (Hạo chủ toàn bộ FE & design system; Đăng phụ trách các component hỗ trợ từ tuần 2)
+/client/                            @hao-github
+/client/src/components/TripForm/    @dang-github @hao-github
+/client/src/components/Header/      @dang-github @hao-github
+/client/src/pages/Trips/            @dang-github @hao-github
+/client/src/pages/Static/           @dang-github @hao-github
+
+# Backend core
+/server/src/app.js                  @an-github
+/server/src/routes/tripRoutes.js    @an-github
+/server/src/routes/authRoutes.js    @an-github
+/server/src/routes/meRoutes.js      @an-github
+/server/src/routes/sharedRoutes.js  @an-github
+/server/src/services/tripService.js @an-github
+/server/src/services/authService.js @an-github
+/server/src/services/emailService.js @an-github
+/server/src/services/shareService.js @an-github
+/server/src/middleware/identity.js  @an-github @lam-github
+
+# AI
+/server/src/tools/                  @hung-github
+/server/src/services/aiService.js   @hung-github
+/server/src/services/placeService.js @hung-github
+/server/src/services/tierService.js @hung-github
+/server/src/services/profileService.js @hung-github
+/server/src/services/promptBuilder.js @hung-github
+/server/src/personas.js             @hung-github
+/server/src/middleware/geminiBudget.js @hung-github
+/server/src/utils/transitCalculator.js @hung-github
+/server/src/routes/chatRoutes.js    @hung-github
+/server/src/routes/onboardingRoutes.js @hung-github
+
+# Security & Data
+/server/src/db/                     @lam-github
+/server/src/middleware/rateLimiter.js @lam-github
+/server/src/middleware/validator.js @lam-github
+
+# DevOps
+/.github/                           @danh-github
+/docker-compose.yml                 @danh-github
+/**/Dockerfile                      @danh-github
+
+# Hợp đồng API: cần BE (An), AI (Hưng) và FE (Hạo)
+/team/openapi.yaml                  @an-github @hung-github @hao-github
+
+# Test
+/tests/                             @dat-github
+**/*.test.js                        @dat-github
+
+# Tài liệu thuyết trình
+/docs/13-demo-qa.md                 @dang-github
+/docs/14-checklist.md               @dang-github
+/README.md                          @dang-github
